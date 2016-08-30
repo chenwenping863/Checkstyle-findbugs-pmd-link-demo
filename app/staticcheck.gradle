@@ -76,8 +76,8 @@ task pmd(type: Pmd) {
     exclude '**/gen/**'
 
     reports {
-        xml.enabled = false
-        html.enabled = true
+        xml.enabled = true
+        html.enabled = false
         xml {
             destination "$project.buildDir/reports/pmd/pmd.xml"
         }
@@ -91,8 +91,8 @@ android {
     lintOptions {
         //if true, stop the gradle build if errors are found
         abortOnError true
-        xmlReport false
-        htmlReport true
+        xmlReport true
+        htmlReport false
         lintConfig file("${project.rootDir}/app/config/quality/lint/lint.xml")
         htmlOutput file("$project.buildDir/reports/lint/lint-result.html")
         xmlOutput file("$project.buildDir/reports/lint/lint-result.xml")
